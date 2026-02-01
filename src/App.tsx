@@ -47,7 +47,7 @@ function App() {
       
       {/* ENCABEZADO (Ahora usa clase CSS para poder achicarse en móvil) */}
       <header className="main-header">
-        <h1>Nuestra Historia ❤️</h1>
+        <h1>Nuestra Historia</h1>
         <p>Toca los recuerdos para ver más</p>
       </header>
 

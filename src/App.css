@@ -14,7 +14,7 @@ html, body, #root {
 /* 2. Contenedor de la Línea del Tiempo */
 .timeline-container {
   width: 90%;
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
   position: relative;
   padding: 40px 0;

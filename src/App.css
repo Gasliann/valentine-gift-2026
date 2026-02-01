@@ -150,10 +150,48 @@ html, body, #root {
 }
 .close-button:hover { color: #b11d4d; }
 
-/* --- 5. RESPONSIVO (MÓVIL) --- */
+/* --- AJUSTES PARA MÓVIL (Mejorados) --- */
 @media screen and (max-width: 768px) {
-  .timeline-container::after { left: 31px; }
-  .timeline-item { width: 100%; padding-left: 75px; padding-right: 15px; }
-  .left, .right { left: 0; }
-  .timeline-item::after, .right::after { left: 18px; }
+  
+  /* 1. Contenedor más ancho en móvil */
+  .timeline-container {
+    width: 100%; /* Usar todo el ancho disponible */
+    padding-bottom: 80px; /* Espacio extra abajo para que no choque con el navegador */
+  }
+
+  /* 2. Mover la línea más a la orilla para ganar espacio */
+  .timeline-container::after {
+    left: 20px; /* Antes era 31px */
+  }
+
+  /* 3. Ajustar las tarjetas para que sean más anchas */
+  .timeline-item {
+    width: 100%;
+    padding-left: 55px; /* Reducimos el espacio (antes 75px) */
+    padding-right: 15px; /* Un margen pequeño a la derecha */
+  }
+
+  /* 4. Ajustar la bolita a la nueva posición de la línea */
+  .timeline-item::after, 
+  .right::after {
+    left: 11px; /* Ajustado para que quede centrada en la línea de 20px */
+  }
+
+  /* 5. MODAL EN MÓVIL (Esto arregla la ventana flotante) */
+  .modal-overlay {
+    padding: 10px; /* Menos margen negro alrededor */
+    align-items: flex-end; /* Opcional: Que aparezca más abajo o centrado */
+  }
+
+  .modal-content {
+    padding: 20px; /* Menos relleno interno (antes 30px) */
+    max-height: 85vh; /* Evita que sea más alta que la pantalla */
+    width: 95%; /* Que ocupe casi todo el ancho */
+    margin-bottom: 20px; /* Un poco de aire abajo */
+  }
+
+  /* Hacemos la letra del título un poco más chica en cel para que no ocupe tanto */
+  .modal-content h2 {
+    font-size: 1.5rem; 
+  }
 }

@@ -10,51 +10,48 @@ function App() {
     AOS.init({ duration: 1000, once: false });
   }, []);
 
+  // --- TUS DATOS ---
   const eventos = [
     {
       fecha: "20 Sep 2025",
-      titulo: "El 'Sí' más importante",
+      titulo: "El Picnic del 'Sí'",
       descripcion: "Hacer click para ver cómo empezó todo...", 
-      detalleCompleto: "Tal vez no lo parecia pero en ese momento estaba muuuy nervioso y no encontraba el momento adecuado para preguntarte, Pero cuando me dijiste que sí, fue el mejor momento de mi vida.",
-      imagenes: ["./picnic.jpeg", "./picnicFlowers.jpeg", "./picnicSelfie.jpeg"] 
+      detalleCompleto: "Estaba nerviosísimo organizando todo. Compramos tu comida favorita y busqué el lugar perfecto. Cuando dijiste que sí, fue el momento más feliz de mi año.",
+      imagenes: ["/picnic1.jpg", "/picnic2.jpg"] 
     },
     {
-      fecha: "23 Dic 2024",
-      titulo: "Nuestro primer mesiversario",
+      fecha: "23 Dic 2025",
+      titulo: "Primer Mesiversario",
       descripcion: "Celebrando nuestro primer mes juntos.",
-      detalleCompleto: "Fue un mes lleno de risas, y momentos muy especiales con mi rolecito, te amo 🦦.",
-      imagenes: ["./firstMonth.jpeg"]
+      detalleCompleto: "Fue un mes lleno de risas y momentos muy especiales con mi rolecito, te amo 🦦.",
+      imagenes: ["/mesiversario.jpg"]
     },
     {
-      fecha: "27 Ene 2025",
-      titulo: "Foto Shoot",
-      descripcion: "Graduados y felices.",
-      detalleCompleto: "Ese día fue muy especial y nos veiamos muy guapos los dos, me encantantaron todas las fotos que nos tomamos juntos.",
-      imagenes: ["./photoShoot1.jpeg", "./photoShoot2.jpeg"]
+      fecha: "Enero 2026",
+      titulo: "Sesión de Graduación",
+      descripcion: "Un logro más desbloqueado juntos.",
+      detalleCompleto: "Aquí escribe los detalles de la graduación...",
+      imagenes: [] // Agrega tus fotos aquí: ["/grad1.jpg", "/grad2.jpg"]
     },
     {
-      fecha: "14 Feb 2025",
-      titulo: "Nuestro primer San Valentín",
-      descripcion: "Un día lleno de amor y sorpresas.",
-      detalleCompleto: "Fue nuestro primer san valentín juntitos y un día muy especial, me encanta cada momento que pasamos juntos.",
-      imagenes: ["./valentinesDay.jpeg"]
+      fecha: "14 Feb 2026",
+      titulo: "Nuestro San Valentín",
+      descripcion: "Un regalo hecho a mano.",
+      detalleCompleto: "Quería regalarte algo hecho con mis propias manos (y código). Te amo.",
+      imagenes: [] 
     }
   ];
 
   return (
     <div style={{ width: '100%', minHeight: '100vh', overflowX: 'hidden' }}>
       
-      <header style={{ 
-        backgroundColor: '#b11d4d', color: 'white', padding: '60px 20px', 
-        textAlign: 'center', borderBottomLeftRadius: '30px', borderBottomRightRadius: '30px', 
-        marginBottom: '40px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
-      }}>
-        <h1 style={{ margin: 0, fontSize: '3rem', fontWeight: 'bold' }}>Nuestra Historia</h1>
-        <p style={{ fontSize: '1.2rem', opacity: 0.9, marginTop: '10px' }}>
-          Toca los recuerdos para ver más
-        </p>
+      {/* ENCABEZADO (Ahora usa clase CSS para poder achicarse en móvil) */}
+      <header className="main-header">
+        <h1>Nuestra Historia ❤️</h1>
+        <p>Toca los recuerdos para ver más</p>
       </header>
 
+      {/* LÍNEA DEL TIEMPO */}
       <div className="timeline-container">
         {eventos.map((evento, index) => (
           <div 
@@ -64,7 +61,7 @@ function App() {
           >
             <div 
               className="content" 
-              onClick={() => setEventoSeleccionado(evento)}
+              onClick={() => setEventoSeleccionado(evento)} 
             >
               <span className="date-badge">{evento.fecha}</span>
               <h2>{evento.titulo}</h2>
@@ -93,25 +90,26 @@ function App() {
         ))}
       </div>
 
-      <footer style={{ textAlign: 'center', padding: '40px', color: '#888' }}>
-        <p>© 2026 - Hecho por tu Barista favorito ☕</p>
+      <footer style={{ textAlign: 'center', padding: '40px', color: '#888', fontSize: '0.9rem' }}>
+        <p>© 2026 - Hecho con amor</p>
       </footer>
 
+      {/* --- MODAL (POPUP) --- */}
       {eventoSeleccionado && (
         <div 
           className="modal-overlay" 
-          onClick={() => setEventoSeleccionado(null)}
+          onClick={() => setEventoSeleccionado(null)} 
         >
           <div 
             className="modal-content" 
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()} 
           >
             <button className="close-button" onClick={() => setEventoSeleccionado(null)}>&times;</button>
             
-            <span className="date-badge" style={{ fontSize: '0.9rem' }}>{eventoSeleccionado.fecha}</span>
-            <h2 style={{ color: '#b11d4d', fontSize: '2rem', marginTop: '10px' }}>{eventoSeleccionado.titulo}</h2>
+            <span className="date-badge">{eventoSeleccionado.fecha}</span>
+            <h2 style={{ color: '#b11d4d', marginTop: '10px' }}>{eventoSeleccionado.titulo}</h2>
             
-            <p style={{ fontSize: '1.1rem', lineHeight: '1.6', color: '#444' }}>
+            <p style={{ lineHeight: '1.6', color: '#444' }}>
               {eventoSeleccionado.detalleCompleto}
             </p>
 

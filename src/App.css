@@ -1,6 +1,6 @@
 /* --- INICIO DE src/App.css --- */
 
-/* 1. Reset Global para pantalla completa */
+/* 1. Reset Global */
 html, body, #root {
   margin: 0;
   padding: 0;
@@ -11,10 +11,35 @@ html, body, #root {
   overflow-x: hidden;
 }
 
-/* 2. Contenedor de la Línea del Tiempo */
+/* 2. NUEVO: Clase para el Encabezado Principal */
+.main-header {
+  background-color: #b11d4d;
+  color: white;
+  padding: 60px 20px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  border-bottom-left-radius: 30px;
+  border-bottom-right-radius: 30px;
+  margin-bottom: 40px;
+  transition: all 0.3s ease; /* Transición suave al cambiar de tamaño */
+}
+
+.main-header h1 {
+  margin: 0;
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.main-header p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-top: 10px;
+}
+
+/* 3. Contenedor de la Línea del Tiempo */
 .timeline-container {
   width: 90%;
-  max-width: 1000px;
+  max-width: 1200px;
   margin: 0 auto;
   position: relative;
   padding: 40px 0;
@@ -25,7 +50,7 @@ html, body, #root {
   content: '';
   position: absolute;
   width: 6px;
-  background-color: #b11d4d; /* Color Vino */
+  background-color: #b11d4d;
   top: 0;
   bottom: 0;
   left: 50%;
@@ -33,9 +58,9 @@ html, body, #root {
   border-radius: 3px;
 }
 
-/* 3. Las Tarjetas (Items) */
+/* 4. Las Tarjetas (Items) */
 .timeline-item {
-  padding: 10px 40px;
+  padding: 15px 40px;
   position: relative;
   width: 50%;
   box-sizing: border-box;
@@ -47,10 +72,10 @@ html, body, #root {
   position: absolute;
   width: 24px;
   height: 24px;
-  right: -15px; /* Centrado perfecto */
-  background-color: #b11d4d; /* Relleno color Vino */
-  border: 4px solid white;   /* Borde blanco para resaltar */
-  top: 20px;
+  right: -15px;
+  background-color: #b11d4d;
+  border: 4px solid white;
+  top: 25px;
   border-radius: 50%;
   z-index: 10;
   box-shadow: 0 0 5px rgba(0,0,0,0.2);
@@ -59,8 +84,6 @@ html, body, #root {
 /* Posiciones Izquierda/Derecha */
 .left { left: 0; }
 .right { left: 50%; }
-
-/* Ajuste de bolita para el lado derecho */
 .right::after { left: -15px; }
 
 /* El contenido blanco (Tarjeta) */
@@ -71,10 +94,9 @@ html, body, #root {
   border-radius: 12px;
   box-shadow: 0 4px 15px rgba(177, 29, 77, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  cursor: pointer; /* Manita al pasar el mouse */
+  cursor: pointer;
 }
 
-/* Efecto Hover en la tarjeta */
 .content:hover {
   transform: translateY(-5px);
   box-shadow: 0 10px 25px rgba(177, 29, 77, 0.2);
@@ -104,7 +126,7 @@ html, body, #root {
   line-height: 1.6;
 }
 
-/* --- 4. MODAL (VENTANA FLOTANTE) --- */
+/* --- 5. MODAL (VENTANA FLOTANTE) --- */
 .modal-overlay {
   position: fixed;
   top: 0;
@@ -112,7 +134,7 @@ html, body, #root {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(8px); /* Efecto difuminado */
+  backdrop-filter: blur(8px);
   z-index: 2000;
   display: flex;
   justify-content: center;
@@ -148,50 +170,61 @@ html, body, #root {
   color: #aaa;
   cursor: pointer;
 }
-.close-button:hover { color: #b11d4d; }
 
-/* --- AJUSTES PARA MÓVIL (Mejorados) --- */
+/* =========================================
+   --- REDUCCIÓN TOTAL PARA MÓVILES ---
+========================================= */
 @media screen and (max-width: 768px) {
   
-  /* 1. Contenedor más ancho en móvil */
+  /* Reducir el tamaño base de la fuente un poco */
+  html {
+    font-size: 15px;
+  }
+
+  /* 1. Reducir Encabezado Principal */
+  .main-header {
+    padding: 30px 15px; /* Mucho menos relleno vertical */
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    margin-bottom: 25px;
+  }
+  .main-header h1 { font-size: 2rem; } /* Título más pequeño */
+  .main-header p { font-size: 1rem; margin-top: 5px; }
+
+  /* 2. Ajustar Línea del Tiempo */
   .timeline-container {
-    width: 100%; /* Usar todo el ancho disponible */
-    padding-bottom: 80px; /* Espacio extra abajo para que no choque con el navegador */
+    width: 100%;
+    padding: 20px 0 80px 0; /* Menos padding arriba */
   }
+  .timeline-container::after { left: 20px; } /* Línea más a la orilla */
 
-  /* 2. Mover la línea más a la orilla para ganar espacio */
-  .timeline-container::after {
-    left: 20px; /* Antes era 31px */
-  }
-
-  /* 3. Ajustar las tarjetas para que sean más anchas */
+  /* 3. Tarjetas más compactas */
   .timeline-item {
     width: 100%;
-    padding-left: 55px; /* Reducimos el espacio (antes 75px) */
-    padding-right: 15px; /* Un margen pequeño a la derecha */
+    padding: 10px 15px 10px 55px; /* Menos espacio vertical entre tarjetas */
+  }
+  .timeline-item::after, .right::after { 
+    left: 11px; 
+    top: 20px; /* Bolita un poco más arriba */
   }
 
-  /* 4. Ajustar la bolita a la nueva posición de la línea */
-  .timeline-item::after, 
-  .right::after {
-    left: 11px; /* Ajustado para que quede centrada en la línea de 20px */
+  /* Contenido de tarjeta más pequeño */
+  .content {
+    padding: 15px; /* Tarjetas más delgadas */
+    border-radius: 10px;
   }
-
-  /* 5. MODAL EN MÓVIL (Esto arregla la ventana flotante) */
-  .modal-overlay {
-    padding: 10px; /* Menos margen negro alrededor */
-    align-items: flex-end; /* Opcional: Que aparezca más abajo o centrado */
-  }
-
+  .content h2 { font-size: 1.3rem; margin-bottom: 5px; }
+  .date-badge { font-size: 0.75rem; padding: 4px 10px; margin-bottom: 8px; }
+  
+  /* 4. Modal más pequeño */
+  .modal-overlay { padding: 10px; align-items: flex-end; }
   .modal-content {
-    padding: 20px; /* Menos relleno interno (antes 30px) */
-    max-height: 85vh; /* Evita que sea más alta que la pantalla */
-    width: 95%; /* Que ocupe casi todo el ancho */
-    margin-bottom: 20px; /* Un poco de aire abajo */
+    padding: 20px; /* Menos relleno interno */
+    width: 95%;
+    margin-bottom: 20px;
+    border-radius: 15px;
   }
-
-  /* Hacemos la letra del título un poco más chica en cel para que no ocupe tanto */
-  .modal-content h2 {
-    font-size: 1.5rem; 
-  }
+  .modal-content h2 { font-size: 1.5rem; margin-top: 5px;}
+  .modal-content p { font-size: 1rem; line-height: 1.5; }
+  .close-button { top: 10px; right: 15px; font-size: 1.5rem; }
 }

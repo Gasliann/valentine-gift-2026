@@ -49,7 +49,7 @@ function App() {
         textAlign: 'center', borderBottomLeftRadius: '30px', borderBottomRightRadius: '30px', 
         marginBottom: '40px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)'
       }}>
-        <h1 style={{ margin: 0, fontSize: '3rem', fontWeight: 'bold' }}>Nuestra Historia ❤️</h1>
+        <h1 style={{ margin: 0, fontSize: '3rem', fontWeight: 'bold' }}>Nuestra Historia</h1>
         <p style={{ fontSize: '1.2rem', opacity: 0.9, marginTop: '10px' }}>
           Toca los recuerdos para ver más
         </p>

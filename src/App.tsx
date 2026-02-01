@@ -14,24 +14,24 @@ function App() {
   const eventos = [
     {
       fecha: "20 Sep 2025",
-      titulo: "El Picnic del 'Sí'",
+      titulo: "El 'Sí' más importante",
       descripcion: "Hacer click para ver cómo empezó todo...", 
-      detalleCompleto: "Estaba nerviosísimo organizando todo. Compramos tu comida favorita y busqué el lugar perfecto. Cuando dijiste que sí, fue el momento más feliz de mi año.",
+      detalleCompleto: "Tal vez no lo parecia pero en ese momento estaba muuuy nervioso y no encontraba el momento adecuado para preguntarte, Pero cuando me dijiste que sí, fue el mejor momento de mi vida.",
       imagenes: ["/picnic1.jpg", "/picnic2.jpg"] 
     },
     {
-      fecha: "23 Dic 2025",
-      titulo: "Primer Mesiversario",
+      fecha: "23 Dic 2024",
+      titulo: "Nuestro primer mesiversario",
       descripcion: "Celebrando nuestro primer mes juntos.",
-      detalleCompleto: "Fue un mes lleno de risas y momentos muy especiales con mi rolecito, te amo 🦦.",
-      imagenes: ["/mesiversario.jpg"]
+      detalleCompleto: "Fue un mes lleno de risas, y momentos muy especiales con mi rolecito, te amo 🦦.",
+      imagenes: ["./firstMonth.jpeg"]
     },
     {
-      fecha: "Enero 2026",
-      titulo: "Sesión de Graduación",
-      descripcion: "Un logro más desbloqueado juntos.",
-      detalleCompleto: "Aquí escribe los detalles de la graduación...",
-      imagenes: [] // Agrega tus fotos aquí: ["/grad1.jpg", "/grad2.jpg"]
+      fecha: "27 Ene 2025",
+      titulo: "Foto Shoot",
+      descripcion: "Graduados y felices.",
+      detalleCompleto: "Ese día fue muy especial y nos veiamos muy guapos los dos, me encantantaron todas las fotos que nos tomamos juntos.",
+      imagenes: ["./photoShoot1.jpeg", "./photoShoot2.jpeg"]
     },
     {
       fecha: "14 Feb 2026",

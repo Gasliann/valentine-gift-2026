@@ -171,60 +171,54 @@ html, body, #root {
   cursor: pointer;
 }
 
-/* =========================================
-   --- REDUCCIÓN TOTAL PARA MÓVILES ---
-========================================= */
+/* --- AJUSTES PARA MÓVIL (CORREGIDO) --- */
 @media screen and (max-width: 768px) {
   
-  /* Reducir el tamaño base de la fuente un poco */
-  html {
-    font-size: 15px;
-  }
-
-  /* 1. Reducir Encabezado Principal */
-  .main-header {
-    padding: 30px 15px; /* Mucho menos relleno vertical */
-    border-bottom-left-radius: 20px;
-    border-bottom-right-radius: 20px;
-    margin-bottom: 25px;
-  }
-  .main-header h1 { font-size: 2rem; } /* Título más pequeño */
-  .main-header p { font-size: 1rem; margin-top: 5px; }
-
-  /* 2. Ajustar Línea del Tiempo */
+  /* 1. El contenedor principal usa el 100% del ancho */
   .timeline-container {
     width: 100%;
-    padding: 20px 0 80px 0; /* Menos padding arriba */
+    padding-left: 0;
+    padding-right: 0;
+    overflow-x: hidden; /* Evita que salga scroll horizontal */
   }
-  .timeline-container::after { left: 20px; } /* Línea más a la orilla */
 
-  /* 3. Tarjetas más compactas */
+  /* 2. Mover la línea rosa a la izquierda */
+  .timeline-container::after {
+    left: 20px; /* Posición fija cerca del borde izquierdo */
+  }
+
+  /* 3. FORZAR que las tarjetas ocupen el ancho correcto */
   .timeline-item {
-    width: 100%;
-    padding: 10px 15px 10px 55px; /* Menos espacio vertical entre tarjetas */
-  }
-  .timeline-item::after, .right::after { 
-    left: 11px; 
-    top: 20px; /* Bolita un poco más arriba */
+    width: 100% !important; /* Importante para sobreescribir el 50% de PC */
+    padding-left: 60px; /* Espacio suficiente para no tapar la línea */
+    padding-right: 20px; /* Margen derecho para que no se corte el texto */
+    left: 0 !important; /* Fuerza a que no se muevan a la derecha */
   }
 
-  /* Contenido de tarjeta más pequeño */
-  .content {
-    padding: 15px; /* Tarjetas más delgadas */
-    border-radius: 10px;
+  /* 4. Asegurar que las clases 'right' no empujen la tarjeta */
+  .right {
+    left: 0 !important;
   }
-  .content h2 { font-size: 1.3rem; margin-bottom: 5px; }
-  .date-badge { font-size: 0.75rem; padding: 4px 10px; margin-bottom: 8px; }
-  
-  /* 4. Modal más pequeño */
-  .modal-overlay { padding: 10px; align-items: flex-end; }
+
+  /* 5. Alinear la bolita exactamente sobre la línea */
+  /* Cálculo: Línea en 20px + mitad de línea (3px) = Centro 23px. 
+     Bolita (24px) / 2 = 12px. 
+     Posición: 23px - 12px = 11px */
+  .timeline-item::after, 
+  .right::after {
+    left: 11px !important; 
+  }
+
+  /* 6. Ajustes del Modal para que no se vea apretado */
   .modal-content {
+    width: 90%; /* Un poco de margen a los lados */
+    margin: 0 auto; /* Centrado */
     padding: 20px; /* Menos relleno interno */
-    width: 95%;
-    margin-bottom: 20px;
-    border-radius: 15px;
+    max-height: 80vh;
   }
-  .modal-content h2 { font-size: 1.5rem; margin-top: 5px;}
-  .modal-content p { font-size: 1rem; line-height: 1.5; }
-  .close-button { top: 10px; right: 15px; font-size: 1.5rem; }
+  
+  /* Ocultar las flechitas decorativas en móvil para ganar espacio */
+  .left::before, .right::before {
+    display: none;
+  }
 }

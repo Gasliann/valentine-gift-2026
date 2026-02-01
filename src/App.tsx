@@ -17,7 +17,7 @@ function App() {
       titulo: "El 'Sí' más importante",
       descripcion: "Hacer click para ver cómo empezó todo...", 
       detalleCompleto: "Tal vez no lo parecia pero en ese momento estaba muuuy nervioso y no encontraba el momento adecuado para preguntarte, Pero cuando me dijiste que sí, fue el mejor momento de mi vida.",
-      imagenes: ["/picnic.jpeg", "/picnicFlowers.jpeg", "/picnicSelfie.jpeg"] 
+      imagenes: ["./picnic.jpeg", "./picnicFlowers.jpeg", "./picnicSelfie.jpeg"] 
     },
     {
       fecha: "23 Dic 2024",

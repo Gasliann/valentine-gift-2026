@@ -13,7 +13,7 @@ function App() {
   // --- TUS DATOS ---
   const eventos = [
     {
-      fecha: "20 Sep 2025",
+      fecha: "23 Nov 2024",
       titulo: "El 'Sí' más importante",
       descripcion: "Hacer click para ver cómo empezó todo...", 
       detalleCompleto: "Tal vez no lo parecia pero en ese momento estaba muuuy nervioso y no encontraba el momento adecuado para preguntarte, Pero cuando me dijiste que sí, fue el mejor momento de mi vida.",

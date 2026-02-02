@@ -52,11 +52,18 @@ function App() {
       imagenes: ["./selfie.jpeg", "./selfieArt.jpeg", "./kiss.mp4"]
     },
     {
-      fecha: "14 Feb 2026",
-      titulo: "Nuestro Primer San Valentín",
-      descripcion: "Un día especial para nosotros.",
-      detalleCompleto: "Estaba muy feliz por celebrar nuestro primer San Valentín juntos, y estaba un poco nervioso por saber si te iba a gustar el ramo porque de ultimo momento me lo cambiaron y al ver tu reacción me sentí mas tranquilo y feliz de que te haya gusatado mucho.",
-      imagenes: ["./SvFlowers.jpeg"]
+      fecha: "23 Jun 2025",
+      titulo: "Una Cena Inolvidable",
+      descripcion: "Nuestro primer mesiversario juntos.",
+      detalleCompleto: "Este era un día muy especial para ambos, por primera vez celebrabamos un mes el mero dia y te juro que no podia creer lo hermosa que te veias, y creeme que me lo pase muy bien contigo ese día.",
+      imagenes: ["./flowersPic.jpeg", "./ourDinner.jpeg", "./mirroPic.jpeg", "./selfieKiss.jpeg"]
+    },
+    {
+      fecha: "",
+      titulo: "",
+      descripcion: "",
+      detalleCompleto: "",
+      imagenes: [""]
     }
   ];
 

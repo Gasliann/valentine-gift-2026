@@ -59,11 +59,25 @@ function App() {
       imagenes: ["./flowersPic.jpeg", "./ourDinner.jpeg", "./mirrorPic.jpeg", "./selfieKiss.jpeg"]
     },
     {
-      fecha: "",
-      titulo: "",
-      descripcion: "",
-      detalleCompleto: "",
-      imagenes: [""]
+      fecha: "31 Oct 2025",
+      titulo: "Nuestra Primera Noche de Halloween",
+      descripcion: "Celebrando juntos nuestro primer Halloween.",
+      detalleCompleto: "Fue un gran halloween sé que el lugar flopeo pero fue muy divertido todo lo demas y sin duda puedo decir que nos la pasamos bomba jajajjja y todo q ver nuestro disfraz.",
+      imagenes: ["./halloween1.jpeg", "./halloweenVid.mp4", "./halloween2.jpeg"]
+    },
+    {
+      fecha: "23 Nov 2025 y 29 Nov 2025",
+      titulo: "Aniversario de nuestro 'Sí'",
+      descripcion: "Celebrando nuestro primer aniversario.",
+      detalleCompleto: "Me moria de ganas de celebrar este día contigo y de poder estar juntos, pero algo más nos impipidió estar juntos ese día, pero sé que pronto podremos celebrar muchos más aniversarios juntos mi rolecito hermoso, estaba muy rico el pastelito 🦦.",
+      imagenes: ["./anniversaryFlowers.jpeg", "./flowersReaction.mp4", "./breakfastPic.jpeg"]
+    },
+    {
+      fecha: "31 Dic 2025",
+      titulo: "Nuestra Primera Noche de Año Nuevo",
+      descripcion: "Celebrando juntos nuestro primer Año Nuevo.",
+      detalleCompleto: "Fue una noche muy especial para nosotros, nos abrazamos y nos dimos un beso en el año nuevo, me sentí muy feliz de haber tenido la oportunidad de estar contigo todo este tiempo.",
+      imagenes: ["./newYear1.jpeg", "./newYear2.jpeg", "./newYear3.jpg"]
     }
   ];
 

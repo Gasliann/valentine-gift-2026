@@ -118,7 +118,7 @@ function App() {
       </div>
 
       <footer style={{ textAlign: 'center', padding: '40px', color: '#888', fontSize: '0.9rem' }}>
-        <p>© 2026 - Hecho con amor</p>
+        <p>© 2026 - Hecho con amor para mi rolecito</p>
       </footer>
 
       {eventoSeleccionado && (
@@ -141,13 +141,26 @@ function App() {
 
             {eventoSeleccionado.imagenes.length > 0 && (
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: '15px', marginTop: '20px' }}>
-                {eventoSeleccionado.imagenes.map((img: string, i: number) => (
-                  <img 
-                    key={i} 
-                    src={img} 
-                    alt="detalle" 
-                    style={{ width: '100%', borderRadius: '10px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }} 
-                  />
+                {eventoSeleccionado.imagenes.map((item: string, i: number) => (
+                  
+                  // Aquí usamos la misma lógica para cada item
+                  esVideo(item) ? (
+                    <video 
+                      key={i}
+                      src={item} 
+                      controls 
+                      playsInline // Importante para iPhone
+                      style={{ width: '100%', borderRadius: '10px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)', backgroundColor: '#000' }} 
+                    />
+                  ) : (
+                    <img 
+                      key={i} 
+                      src={item} 
+                      alt="detalle" 
+                      style={{ width: '100%', borderRadius: '10px', boxShadow: '0 4px 10px rgba(0,0,0,0.1)' }} 
+                    />
+                  )
+
                 ))}
               </div>
             )}

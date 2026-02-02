@@ -56,7 +56,7 @@ function App() {
       titulo: "Una Cena Inolvidable",
       descripcion: "Nuestro primer mesiversario juntos.",
       detalleCompleto: "Este era un día muy especial para ambos, por primera vez celebrabamos un mes el mero dia y te juro que no podia creer lo hermosa que te veias, y creeme que me lo pase muy bien contigo ese día.",
-      imagenes: ["./flowersPic.jpeg", "./ourDinner.jpeg", "./mirroPic.jpeg", "./selfieKiss.jpeg"]
+      imagenes: ["./flowersPic.jpeg", "./ourDinner.jpeg", "./mirrorPic.jpeg", "./selfieKiss.jpeg"]
     },
     {
       fecha: "",

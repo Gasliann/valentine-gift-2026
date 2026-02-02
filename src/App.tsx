@@ -10,7 +10,11 @@ function App() {
     AOS.init({ duration: 1000, once: false });
   }, []);
 
-  // --- TUS DATOS ---
+
+  const esVideo = (url: string) => {
+    return url.toLowerCase().endsWith('.mp4') || url.toLowerCase().endsWith('.mov') || url.toLowerCase().endsWith('.webm');
+  };
+
   const eventos = [
     {
       fecha: "23 Nov 2024",
@@ -34,24 +38,36 @@ function App() {
       imagenes: ["./photoShoot1.jpeg", "./photoShoot2.jpeg"]
     },
     {
+      fecha: "14 Feb 2025",
+      titulo: "Nuestro Primer San Valentín",
+      descripcion: "Un día especial para nosotros.",
+      detalleCompleto: "Estaba muy feliz por celebrar nuestro primer San Valentín juntos, y estaba un poco nervioso por saber si te iba a gustar el ramo porque de ultimo momento me lo cambiaron y al ver tu reacción me sentí mas tranquilo y feliz de que te haya gusatado mucho.",
+      imagenes: ["./SvFlowers.jpeg"] 
+    },
+    {
+      fecha: "12 May 2025",
+      titulo: "El Reencuentro",
+      descripcion: "Después de un tiempo separados, por fin juntos de nuevo.",
+      detalleCompleto: "En ese punto creeme que te extrañaba demasiado y no podia esperar mas pare verte por un momento y abrazarte, sé que fue algo dificil para ti pero creeme que lo fue tambien para mi",
+      imagenes: ["./selfie.jpeg", "./selfieArt.jpeg", "./kiss.mp4"]
+    },
+    {
       fecha: "14 Feb 2026",
-      titulo: "Nuestro San Valentín",
-      descripcion: "Un regalo hecho a mano.",
-      detalleCompleto: "Quería regalarte algo hecho con mis propias manos (y código). Te amo.",
-      imagenes: [] 
+      titulo: "Nuestro Primer San Valentín",
+      descripcion: "Un día especial para nosotros.",
+      detalleCompleto: "Estaba muy feliz por celebrar nuestro primer San Valentín juntos, y estaba un poco nervioso por saber si te iba a gustar el ramo porque de ultimo momento me lo cambiaron y al ver tu reacción me sentí mas tranquilo y feliz de que te haya gusatado mucho.",
+      imagenes: ["./SvFlowers.jpeg"]
     }
   ];
 
   return (
     <div style={{ width: '100%', minHeight: '100vh', overflowX: 'hidden' }}>
       
-      {/* ENCABEZADO (Ahora usa clase CSS para poder achicarse en móvil) */}
       <header className="main-header">
         <h1>Nuestra Historia</h1>
         <p>Toca los recuerdos para ver más</p>
       </header>
 
-      {/* LÍNEA DEL TIEMPO */}
       <div className="timeline-container">
         {eventos.map((evento, index) => (
           <div 
@@ -69,11 +85,22 @@ function App() {
               
               {evento.imagenes.length > 0 && (
                 <div style={{ position: 'relative', marginTop: '15px' }}>
-                  <img 
-                    src={evento.imagenes[0]} 
-                    alt="preview" 
-                    style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px' }} 
-                  />
+
+                  {esVideo(evento.imagenes[0]) ? (
+                    <video 
+                      src={evento.imagenes[0]} 
+                      controls 
+                      muted
+                      style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px', backgroundColor: '#000' }} 
+                    />
+                  ) : (
+                    <img 
+                      src={evento.imagenes[0]} 
+                      alt="preview" 
+                      style={{ width: '100%', height: '180px', objectFit: 'cover', borderRadius: '8px' }} 
+                    />
+                  )}
+
                   {evento.imagenes.length > 1 && (
                     <div style={{
                       position: 'absolute', bottom: '10px', right: '10px', 
@@ -94,7 +121,6 @@ function App() {
         <p>© 2026 - Hecho con amor</p>
       </footer>
 
-      {/* --- MODAL (POPUP) --- */}
       {eventoSeleccionado && (
         <div 
           className="modal-overlay" 
